@@ -14,7 +14,7 @@ class Community(AlchemyMixin, Base):
     id = Column(types.BigInteger, primary_key=True)
     city_id = Column(types.Integer, ForeignKey(City.id), nullable=False)
     district_id = Column(types.Integer, ForeignKey(District.id), nullable=False)
-    biz_circle_id = Column(types.Integer, ForeignKey(BizCircle.id), nullable=False)
+    biz_circle_id = Column(types.Integer, ForeignKey(BizCircle.id), nullable=False, primary_key=True)
     name = Column(types.String(32), nullable=False)
     building_finish_year = Column(types.Integer)  # 建筑年代, 可能无此信息
     building_type = Column(types.String(32))  # 建筑类型, 可能无此信息

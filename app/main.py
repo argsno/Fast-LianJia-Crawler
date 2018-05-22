@@ -172,7 +172,7 @@ def update_db(db_session, biz_circle, communities):
         try:
             district_id = DISTRICT_MAP[community_info['district_name']]
             community = Community(biz_circle.city_id, district_id, biz_circle.id, community_info)
-            db_session.add(community)
+            db_session.merge(community)
         except Exception as e:
             # 返回的信息可能是错误的/不完整的, 如小区信息失效后返回的是不完整的信息
             # 如: http://sz.lianjia.com/xiaoqu/2414168277659446
